@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First and third person movement using C++, SDL3, Emscripten, OpenGL ES 2.0, and Bullet Physics</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body style="caret-color: transparent;">
+
+    <div style="position: relative; width: 100%; height: 100%;">
+        <div id="sidePanel" style="position: absolute; top: 20px; right: 20px; display: none;">
+            <span style="color: white; font-size: 30px;">Camera control:</span><br>
+            <span style="color: white; font-size: 20px;">LMB - to rotate</span><br>
+            <span style="color: white; font-size: 20px;">MMB - to zoom in/out</span><br>
+            <span style="color: white; font-size: 20px;">RMB - to pan</span><br>
+            <span style="color: white; font-size: 20px;">C - hide/show colliders</span><br>
+            <span style="color: white; font-size: 20px;">F - first person view</span>
+        </div>
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <div id="instructions">
+        <span>Control: WASD and mouse</span>
+        <br>
+        <span>Click to continue</span>
+    </div>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        canvas.oncontextmenu = event => { event.preventDefault(); return false; };
+
+        const instructions = document.getElementById("instructions");
+        instructions.oncontextmenu = event => { event.preventDefault(); return false; };
+
+        const sidePanel = document.getElementById("sidePanel");
+        sidePanel.oncontextmenu = event => { event.preventDefault(); return false; };
+
+        function hideInstructions() {
+            instructions.style.display = "none";
+        }
+
+        function showSidePanel() {
+            sidePanel.style.display = "";
+        }
+
+        function hideSidePanel() {
+            sidePanel.style.display = "none";
+        }
+    </script>
+
+    <script async type="text/javascript" src="./js/sdl-min.js"></script>
+</body>
+
+</html>
